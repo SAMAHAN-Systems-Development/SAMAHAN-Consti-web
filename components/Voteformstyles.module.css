@@ -1,12 +1,19 @@
-/* .table{
+.container{
     background-color: red;
     
+    justify-content: center;
+    
+    width: fit-content;
 }
-
-.body{
-    height: 100px;
-    width: 100%;
-    background-color: aqua;
+.innercontainer{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.section{
     display: flex;
     justify-content: center;
-} */
+}

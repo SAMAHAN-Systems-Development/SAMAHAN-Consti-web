@@ -1,0 +1,8 @@
+.outer{
+  position: relative;
+  height: 500px;
+  width: 100vw;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
