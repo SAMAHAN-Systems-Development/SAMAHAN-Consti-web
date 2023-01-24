@@ -25,7 +25,6 @@
   flex-direction: row;
   justify-content: center;
   padding-bottom: 10px;
-  font-family: "Montserrat", Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
@@ -47,8 +46,9 @@
   font-weight: 900;
 }
 
-.input input {
-  color: #2a31be !important;
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.671);
+  font-weight: 500;
 }
 
 .text {
@@ -58,7 +58,7 @@
   text-align: left;
   padding: 1rem 0;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 500;
   color: white;
 }
 
@@ -92,7 +92,7 @@
 .head {
   font-size: 2.5rem;
   font-weight: 700;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
 }
 
 .rinput {
@@ -109,4 +109,45 @@
   flex-direction: column;
   gap: 0rem;
   padding: 1rem 0rem;
+}
+
+.floating_input {
+  position: relative;
+  margin: 0.5rem 0rem;
+}
+
+.floating_input label {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.603);
+  padding: 0;
+  transform: translateY(-100%);
+  font-size: 0.8rem;
+  color: white;
+}
+
+.input[type="text"],
+.input[type="email"] {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  background-color: #191b63;
+  color: white;
+  border-radius: 0;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+.input[type="text"]:hover,
+.input[type="text"]:focus,
+.input[type="email"]:hover,
+.input[type="email"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }

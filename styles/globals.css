@@ -81,14 +81,14 @@
 
 html,
 body {
-  color: white;
+  color: white !important;
   max-width: 100vw;
   overflow-x: hidden;
   font-family: "Raleway", sans-serif;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: white !important;
   background: linear-gradient(
       to bottom,
       transparent,
