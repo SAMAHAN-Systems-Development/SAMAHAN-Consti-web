@@ -12,7 +12,7 @@ export default function Voteform() {
 
     const handleSubmit = async (event) =>{
         event.preventDefault();
-
+        
         const datas = {
             Name,
             Email
@@ -20,12 +20,7 @@ export default function Voteform() {
         }
         console.log(datas)
         try{
-            // const {info} = await axios ({
-            //     url: "/api/datasend",
-            //     method: "POST",
-            //     data: datas,
-            // }) 
-            // console.log("res back", info)
+           
 
             axios.post("http://localhost:3000/api/datasend", datas )
             .then((result) => {
