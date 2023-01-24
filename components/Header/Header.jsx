@@ -6,7 +6,12 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.image_wrapper}>
-        <Image src="/SAMAHAN.png" fill objectFit="contain" />
+        <Image
+          src="/SAMAHAN-off.png"
+          alt="SAMAHAN Logo"
+          fill
+          objectFit="contain"
+        />
       </div>
     </div>
   );

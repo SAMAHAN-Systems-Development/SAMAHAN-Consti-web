@@ -1,13 +1,16 @@
 .main {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
 .outer {
-  height: 100%;
+  min-height: 100vh;
   flex: 10;
-  background-color: #1d1f76;
+  background: url("../public/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
 }
