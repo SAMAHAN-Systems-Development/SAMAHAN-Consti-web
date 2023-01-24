@@ -43,12 +43,12 @@ export default function Voteform() {
         <h1>Please VOTE here!</h1>
     <form>
         <div className={styles.section}>
-            <label>Name</label>
-            <input type="text" onChange={({target}) => setName(target?.value)}/>
+            
+            <input type="text" placeholder="Name"onChange={({target}) => setName(target?.value)}/>
          </div>
          <div className={styles.section}>
-            <label>Addu email</label>
-            <input type="text" onChange={({target}) => setEmail(target?.value)} />
+            
+            <input type="text" placeholder='ADDU Email' onChange={({target}) => setEmail(target?.value)} />
             </div>
             <div className={styles.section}>
                 
