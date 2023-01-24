@@ -1,0 +1,14 @@
+.footer {
+  flex: 1;
+  width: 100%;
+  background-color: #ede4d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image_wrapper {
+  width: 250px;
+  height: 90px;
+  position: relative;
+}
