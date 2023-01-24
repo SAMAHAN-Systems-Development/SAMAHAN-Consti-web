@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  background-color: #1a275f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.image_wrapper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}

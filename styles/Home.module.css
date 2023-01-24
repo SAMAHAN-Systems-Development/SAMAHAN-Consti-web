@@ -1,8 +1,16 @@
-.outer{
-  position: relative;
-  height: 500px;
-  width: 100vw;
-  background-color: yellow;
+.main {
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100vh; */
+}
+
+.outer {
+  min-height: 100vh;
+  flex: 10;
+  background: url("../public/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
 }

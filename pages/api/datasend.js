@@ -25,7 +25,8 @@ export default async function dataSend(req, res){
         if(snapshot.empty){
             const atenean={
                 fullName: req.body.Name,
-                adduemail: req.body.Email
+                adduemail: req.body.Email,
+                vote: req.body.RadioAnswer
             }
             const response = await db.collection("students").add(atenean)
             res.send(response)
