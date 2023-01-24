@@ -12,10 +12,11 @@ export default function Voteform() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (RadioAnswer) {
-      // const datas = {
-      //   Name,
-      //   Email,
-      // };
+       const datas = {
+         Name,
+         Email,
+         RadioAnswer
+       };
       // console.log(datas);
       // try {
       //   // const {info} = await axios ({
@@ -24,9 +25,9 @@ export default function Voteform() {
       //   //     data: datas,
       //   // })
       //   // console.log("res back", info)
-      //   axios.post("http://localhost:3000/api/datasend", datas).then((result) => {
-      //     console.log("here is the res", result.data);
-      //   });
+         await axios.post("http://localhost:3000/api/datasend", datas).then((result) => {
+           console.log("here is the res", result.data);
+        });
       // } catch (err) {
       //   console.log(err);
       // }
