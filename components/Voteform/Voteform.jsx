@@ -8,7 +8,10 @@ export default function Voteform() {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [RadioAnswer, setRadioAnswer] = useState("");
-
+  const [nameLength, setNameLength] = useState("");
+  const handleNamelen = event => {
+    setNameLength(event.target.value);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (RadioAnswer) {
@@ -17,14 +20,7 @@ export default function Voteform() {
          Email,
          RadioAnswer
        };
-      // console.log(datas);
-      // try {
-      //   // const {info} = await axios ({
-      //   //     url: "/api/datasend",
-      //   //     method: "POST",
-      //   //     data: datas,
-      //   // })
-      //   // console.log("res back", info)
+     
          await axios.post("http://localhost:3000/api/datasend", datas).then((result) => {
            console.log("here is the res", result.data);
         });
@@ -112,6 +108,7 @@ export default function Voteform() {
               type="submit"
               value="Submit"
               onClick={handleSubmit}
+             
               className={styles.button}
             >
               Submit
