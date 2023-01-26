@@ -3,8 +3,9 @@ import styles from "./Voteformstyles.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { useRouter } from "next/router";
 export default function Voteform() {
+  
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [RadioAnswer, setRadioAnswer] = useState("");
@@ -12,6 +13,7 @@ export default function Voteform() {
   const handleNamelen = event => {
     setNameLength(event.target.value);
   };
+  const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (isValid()) {
@@ -34,6 +36,8 @@ export default function Voteform() {
           .then((result) => {
             console.log("here is the res", result.data);
           });
+          router.push('./Submission');
+
       } catch (err) {
         console.log(err);
       }
@@ -80,7 +84,9 @@ export default function Voteform() {
       });
       return false;
     }
+    
     return true;
+  
   };
 
   return (
@@ -122,9 +128,9 @@ export default function Voteform() {
 
             <div className={styles.radio_group}>
               <h3 className={styles.text}>
-                Do you agree with the amendment for the 2023 SAMAHAN
-                constitution?
+              Are you in favor of ratifying the proposed amendments to the 2020 SAMAHAN Constitution?
               </h3>
+             
               <div className={styles.radio}>
                 Yes{" "}
                 <input
@@ -159,6 +165,7 @@ export default function Voteform() {
             </button>
           </div>
         </form>
+        <a href="https://tinyurl.com/Updated2020SMHNConsti"> <button className={styles.ammendments}>Click to view proposed amendments </button></a>
       </div>
     </div>
   );
