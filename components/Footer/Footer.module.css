@@ -5,10 +5,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+ 
 }
 
 .image_wrapper {
   width: 250px;
   height: 100px;
   position: relative;
+}
+
+.inquiries{
+  color: black;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  
+  
+}
+.email{
+  color: #1a275f;
 }

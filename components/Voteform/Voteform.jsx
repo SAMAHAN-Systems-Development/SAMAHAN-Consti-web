@@ -165,7 +165,7 @@ export default function Voteform() {
             </button>
           </div>
         </form>
-        <a href="https://tinyurl.com/Updated2020SMHNConsti"> <button className={styles.ammendments}>Click to view proposed amendments </button></a>
+        <a href="https://tinyurl.com/Updated2020SMHNConsti"> <button className={styles.ammendments}>Click HERE to view proposed amendments </button></a>
       </div>
     </div>
   );
