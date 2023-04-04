@@ -1,40 +1,54 @@
 import React from "react";
 import styles from "./Voteformstyles.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { useRouter } from "next/router";
 export default function Voteform() {
+  
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [RadioAnswer, setRadioAnswer] = useState("");
-
+  const [nameLength, setNameLength] = useState("");
+  const handleNamelen = event => {
+    setNameLength(event.target.value);
+  };
+  const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (RadioAnswer) {
-       const datas = {
-         Name,
-         Email,
-         RadioAnswer
-       };
-      // console.log(datas);
-      // try {
-      //   // const {info} = await axios ({
-      //   //     url: "/api/datasend",
-      //   //     method: "POST",
-      //   //     data: datas,
-      //   // })
-      //   // console.log("res back", info)
-         await axios.post("http://localhost:3000/api/datasend", datas).then((result) => {
-           console.log("here is the res", result.data);
-        });
-      // } catch (err) {
-      //   console.log(err);
-      // }
-    } else {
-      toast.error("No option selected.", {
-        position: "bottom-right",
-        autoClose: 5000,
+    if (isValid()) {
+      try {
+        const datas = {
+          Name,
+          Email,
+          RadioAnswer,
+        };
+        // console.log(datas);
+        // try {
+        //   // const {info} = await axios ({
+        //   //     url: "/api/datasend",
+        //   //     method: "POST",
+        //   //     data: datas,
+        //   // })
+        //   // console.log("res back", info)
+        await axios
+          .post("https://visionary-peony-079a58.netlify.app/api/datasend", datas)
+          .then((result) => {
+            console.log("here is the res", result.data);
+          });
+          router.push('./Submission');
+
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
+  const isValid = () => {
+    if (!Name.match(`^[a-zA-Z][a-zA-Z ]*[a-zA-Z]-?[a-zA-Z ]*[a-zA-Z]$`)) {
+      toast.error("Invalid name.", {
+        position: "top-right",
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -42,7 +56,37 @@ export default function Voteform() {
         progress: undefined,
         theme: "colored",
       });
+      return false;
     }
+    if (!Email.match(`^[a-zA-Z0-9._%+-]+@addu\.edu\.ph$`)) {
+      toast.error("Invalid email.", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return false;
+    }
+    if (RadioAnswer === "") {
+      toast.error("Selection cannot be empty.", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return false;
+    }
+    
+    return true;
+  
   };
 
   return (
@@ -84,9 +128,9 @@ export default function Voteform() {
 
             <div className={styles.radio_group}>
               <h3 className={styles.text}>
-                Do you agree with the amendment for the 2023 SAMAHAN
-                constitution?
+              Are you in favor of ratifying the proposed amendments to the 2020 SAMAHAN Constitution?
               </h3>
+             
               <div className={styles.radio}>
                 Yes{" "}
                 <input
@@ -96,6 +140,7 @@ export default function Voteform() {
                   id=""
                   className={styles.rinput}
                   onClick={({ target }) => setRadioAnswer(target?.value)}
+                  required
                 />
                 No{" "}
                 <input
@@ -105,19 +150,22 @@ export default function Voteform() {
                   id=""
                   className={styles.linput}
                   onClick={({ target }) => setRadioAnswer(target?.value)}
+                  required
                 />
               </div>
             </div>
             <button
-              type="submit"
+              type="button"
               value="Submit"
               onClick={handleSubmit}
+             
               className={styles.button}
             >
               Submit
             </button>
           </div>
         </form>
+        <a href="https://tinyurl.com/Updated2020SMHNConsti"> <button className={styles.ammendments}>Click HERE to view proposed amendments </button></a>
       </div>
     </div>
   );

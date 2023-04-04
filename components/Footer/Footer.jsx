@@ -8,6 +8,9 @@ const Footer = () => {
       <div className={styles.image_wrapper}>
         <Image src="/consti_natin.png" fill objectFit="contain" />
       </div>
+      <div className={styles.inquiries}>
+        <h3>For inquiries, message us at: <span className={styles.email}>samahan@addu.edu.ph</span></h3>
+      </div>
     </footer>
   );
 };
