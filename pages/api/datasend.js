@@ -1,5 +1,5 @@
 import admin from 'firebase-admin';
-import credentials from "./serviceAccountKey.json"
+import credentials from "../../serviceAccountKey.json"
 
 if (!admin.apps.length) {
     try {
